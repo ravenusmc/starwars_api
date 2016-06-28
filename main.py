@@ -3,6 +3,21 @@
 
 import requests 
 
+def connect(view):
+  #Setting up the URL that I will be looking at.
+  url = ('http://swapi.co/api/' + str(view))
+  #Setting up a get request to pull the data from the URL
+  r = requests.get(url)
+  if r.status_code == 200:
+    print("status_code", r.status_code)
+    print("You have connected to the database!")
+  else:
+    print("Sorry it appears your connection failed!")
+
+
+# #Storing the API response in a variable 
+# response_dict = r.json()
+
 
 def began():
   print("To start, Here are the categories you can look at:")
@@ -12,7 +27,8 @@ def began():
   print("species")
   print("vehicles")
   print("starships")
-  view = input("What do you want to look at?")
+  view = input("What do you want to look at? ")
+  connect(view)
 
 
 #This function starts the program and basically asks the user if
