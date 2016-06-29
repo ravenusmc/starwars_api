@@ -14,9 +14,34 @@ def connect(view):
   else:
     print("Sorry it appears your connection failed!")
 
+  #Storing the API response in a variable 
+  response_dict = r.json()
+  print("Total count: ", response_dict['count'])
+  #Here I am looking at the Key Results-this key happens to have all the information that 
+  #I need to look at the information. 
+  repo_dicts = response_dict['results']
 
-# #Storing the API response in a variable 
-# response_dict = r.json()
+
+  for key, value in repo_dicts:
+    print(repo_dicts['title'])
+
+  repo_dict = repo_dicts[1]
+  print("Here is what you can look at:")
+  for key in sorted(repo_dict.keys()):
+    print(key)
+  print("From the above list, what do you want to examine?")
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def began():
@@ -44,3 +69,4 @@ def main():
     print("Hope you use it soon!")
 
 main()
+
