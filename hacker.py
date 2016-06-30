@@ -11,5 +11,25 @@ print('Status Code:', r.status_code)
 submission_ids = r.json() 
 #Storing all of the dictionaries in an empty list.
 submission_dicts = []
+for submission_id in submission_ids[:30]:
+  #Make a seperate API call for each submission.
+  url = ('https://hacker-news.firebaseio.com/v0/item/' + str(submission_id) + '.json')
+  submission_r = requests.get(url)
+  print(submission_r.status_code)
+  response_dict = submission_r.json()
 
-print(submission_dicts)
+  submission_dict = {
+    'title:': response_dict['title'],
+    'link:': 'http://ycombinator.com/item?id=' + str(submission_id),
+    'comments': response_dict.get('descendants', 0) 
+  }
+  submission_dicts.append(submission_dicts)
+
+submission_dicts = sorted(submission_dicts, key=itemgetter('comments'), reverse=True)
+
+for submission_dict in submission_dicts:
+  print("\nTitle:", submission_dict['title'])
+  print("Discussion link:", submission_dict['link'])
+  print("Comments:", submission_dict['comments'])
+
+# print(submission_dicts)

@@ -14,33 +14,51 @@ def connect(view):
   else:
     print("Sorry it appears your connection failed!")
 
+  print("Here are the " + view +"'s" + " that you can see:")
+
   #Storing the API response in a variable 
   response_dict = r.json()
   print("Total count: ", response_dict['count'])
-  #Here I am looking at the Key Results-this key happens to have all the information that 
-  #I need to look at the information. 
+
   repo_dicts = response_dict['results']
 
+  items = []
+  item = {
+    "title": response_dict['results'][0]['title'],
+    "episode_id": response_dict['results'][0]['episode_id'],
+    "director": response_dict['results'][0]['director']
+  }
 
-  for key, value in repo_dicts:
-    print(repo_dicts['title'])
+  items.append(item)
 
-  repo_dict = repo_dicts[1]
-  print("Here is what you can look at:")
-  for key in sorted(repo_dict.keys()):
-    print(key)
-  print("From the above list, what do you want to examine?")
-
-
-
-
-
+  for item in items:
+    print("Title:", item['title'])
+    print("Director:", item['director'])
 
 
 
+########## This Code is GOOD!!!
+  # num = 0
+  # while num < response_dict['count']:
+  #   if view == 'films':
+  #     repo_dict = repo_dicts[num]['title']
+  #     print(str(num) + " " + repo_dict)
+  #   elif view == 'starships': 
+  #     repo_dict = repo_dicts[num]['name']
+  #     print(str(num) + " " + repo_dict)
+  #   num += 1 
+
+  # choice = int(input("Which one do you want to look at: "))
+  # print("Here is the information on the " + view + "You wanted to see: ")
+  # print(repo_dicts[choice])
+###################
 
 
 
+  #print("Here is what you can look at:")
+  # for key in sorted(repo_dict.keys()):
+  #   print(key)
+  # print("From the above list, what do you want to examine?")
 
 
 
