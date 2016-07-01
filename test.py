@@ -1,5 +1,74 @@
 import requests 
 
+############## START OF FILMS ##################
+
+def films():
+  #Setting up the URL that I will be looking at.
+  url = ('http://swapi.co/api/films')
+  #Setting up a get request to pull the data from the URL
+  r = requests.get(url)
+  if r.status_code == 200:
+    print("status_code", r.status_code)
+    print("You have connected to the database!")
+  else:
+    print("Sorry it appears your connection failed!")
+
+  #Storing the API response in a variable 
+  response_dict = r.json()
+  print("There are currently", response_dict['count'], "items to view")
+
+  print("Here are the films that you can see:")
+
+  repo_dicts = response_dict['results']
+
+  num = 0
+  while num < response_dict['count']:
+    repo_dict = repo_dicts[num]['title']
+    print(str(num) + " " + repo_dict)
+    num += 1 
+
+  choice = int(input("Which one do you want to look at: "))
+  print("Here is the information you wanted to see: ")
+  # print(repo_dicts[choice])
+  items = []
+  item = {
+    "title": response_dict['results'][choice]['title'],
+    "episode_id": response_dict['results'][choice]['episode_id'],
+    "opening_crawl": response_dict['results'][choice]['opening_crawl'],
+    "director": response_dict['results'][choice]['director'],
+    "producer": response_dict['results'][choice]['producer'],
+    "release_date": response_dict['results'][choice]['release_date'],
+    "characters": response_dict['results'][choice]['characters'],
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("Title:", item['title'])
+    print("episode:", response_dict['results'][choice]['episode_id'])
+    print("Director:", item['director'])
+    print("Producer:", item['producer'])
+    print("release_date", item['release_date'])
+    print("opening_crawl:", item['opening_crawl'])
+
+############# END OF FILMS #####################
+
+
+################ START OF STARSHIPS #############
+
+def starship():
+  print("Here you will find information about Starships in Star Wars")
+  print("There are a lot of ships which will be in groups of 10.")
+  print("Please choose which group you want to look at:")
+  print("1: First Group")
+  print("2: Second Group")
+  print("3: Third Group")
+  print("4: Fourth Group")
+  choice = int(input("What do you want to look at: "))
+  if choice == 1:
+    two()
+
+
 def two():
   num = 0
   while num <= 9:
@@ -12,7 +81,10 @@ def two():
       print(str(num) + " " + repo_dict)
       num += 1 
 
+  print("If you do not see your ship please enter -1 to go back to the main starship menu")
   choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    starship()
   print("Here is the information on the you wanted to see: ")
 
   items = []
@@ -56,7 +128,10 @@ def three():
       print(str(num) + " " + repo_dict)
       num += 1 
 
+  print("If you do not see your ship please enter -1 to go back to the main starship menu")
   choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    starship()
   print("Here is the information on the you wanted to see: ")
 
   items = []
@@ -99,7 +174,10 @@ def four():
       print(str(num) + " " + repo_dict)
       num += 1 
 
+  print("If you do not see your ship please enter -1 to go back to the main starship menu")
   choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    starship()
   print("Here is the information on the you wanted to see: ")
 
   items = []
@@ -130,18 +208,25 @@ def four():
     print("hyperdrive_rating:", item['hyperdrive_rating'])
     print("starship_class:", item['starship_class'])
 
+################# END OF STARSHIPS #################
 
 def began():
   print("To start, Here are the categories you can look at:")
-  print("people")
-  print("planets")
-  print("films")
-  print("species")
-  print("vehicles")
-  print("starships")
-  view = input("What do you want to look at? ")
+  print("1. People")
+  print("2. Planets")
+  print("3. Films")
+  print("4. Species")
+  print("5. Vehicles")
+  print("6. Starships")
+  choice = int(input("What do you want to look at? "))
+  if choice == 1:
+    films()
+  elif choice == 3:
+    films()
+  elif choice == 6:
+    starship()
   
-  
+
 
 #This function starts the program and basically asks the user if
 #they want to use it. 
