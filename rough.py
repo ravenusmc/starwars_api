@@ -22,26 +22,25 @@ while num < response_dict['count']:
     response_dict = r.json()
     repo_dict = repo_dicts[num]['name']
     print(str(num) + " " + repo_dict)
-  elif num > 10 and num <= 19:
+  elif num >= 10 and num <= 18:
     url = ('http://swapi.co/api/starships/?format=json&page=2')
     r = requests.get(url)
+    response_dict = r.json()
     print("status_code, page 2", r.status_code)
-    response_dict = r.json()
-    #repo_dict = repo_dicts[num]['name']
-    # print("test3")
-    # print(str(num) + " " + repo_dict)
-  elif num > 19 and num <= 29:
-    url = ('http://swapi.co/api/starships/?format=json&page=3')
-    r = requests.get(url)
-    print("status_code, page 3", r.status_code)
-    response_dict = r.json()
+    repo_dict = repo_dicts[num]['name']
+    print(str(num) + " " + repo_dict)
+  # elif num >= 19 and num <= 28:
+  #   url = ('http://swapi.co/api/starships/?format=json&page=3')
+  #   r = requests.get(url)
+  #   print("status_code, page 3", r.status_code)
+  #   response_dict = r.json()
   #   repo_dict = repo_dicts[num]['name']
   #   print(str(num) + " " + repo_dict)
-  elif num > 29 and num <= 36:
-    url = ('http://swapi.co/api/starships/?format=json&page=4')
-    r = requests.get(url)
-    print("status_code, page 4", r.status_code)
-    response_dict = r.json()
+  # elif num >= 29 and num <= 35:
+  #   url = ('http://swapi.co/api/starships/?format=json&page=4')
+  #   r = requests.get(url)
+  #   print("status_code, page 4", r.status_code)
+  #   response_dict = r.json()
   #   repo_dict = repo_dicts[num]['name']
   #   print(str(num) + " " + repo_dict)
   

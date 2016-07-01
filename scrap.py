@@ -46,3 +46,49 @@ print("\nSelected information about each repo:")
 
 # chart.add('', crew)
 # chart.render_to_file('starwars.svg')
+
+
+
+#############
+
+Star Wars API 
+
+0 Sentinel-class landing craft         1
+1 Death Star                           2
+2 Millennium Falcon                    3
+3 Y-wing                               4
+4 X-wing                               5
+5 TIE Advanced x1                      6
+6 Executor                             7
+7 Slave 11                             8
+8 Imperial shuttle                     9
+9 EF76 Nebulon-B escort frigate        10
+
+10 status_code, page 2 200             11
+11 status_code, page 2 200             12
+12 status_code, page 2 200             13
+13 status_code, page 2 200             14
+14 status_code, page 2 200             15
+15 status_code, page 2 200             16
+16 status_code, page 2 200             17
+17 status_code, page 2 200             18
+18 status_code, page 2 200             19
+
+19 status_code, page 3 200
+20 status_code, page 3 200
+21 status_code, page 3 200
+22 status_code, page 3 200
+23 status_code, page 3 200
+24 status_code, page 3 200
+25 status_code, page 3 200
+26 status_code, page 3 200
+27 status_code, page 3 200
+28 status_code, page 3 200
+
+29 status_code, page 4 200
+30 status_code, page 4 200
+31 status_code, page 4 200
+32 status_code, page 4 200
+33 status_code, page 4 200
+34 status_code, page 4 200
+35 status_code, page 4 200
