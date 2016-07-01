@@ -14,27 +14,47 @@ def connect(view):
   else:
     print("Sorry it appears your connection failed!")
 
-  print("Here are the " + view +"'s" + " that you can see:")
-
   #Storing the API response in a variable 
   response_dict = r.json()
-  print("Total count: ", response_dict['count'])
+  print("There are currently", response_dict['count'], "items to view")
+
+  print("Here are the " + view + " that you can see:")
 
   repo_dicts = response_dict['results']
 
+  num = 0
+  while num < response_dict['count']:
+    if view == 'films':
+      repo_dict = repo_dicts[num]['title']
+      print(str(num) + " " + repo_dict)
+    elif view == 'starships':
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+    num += 1 
+
+  choice = int(input("Which one do you want to look at: "))
+  print("Here is the information on the " + view + " you wanted to see: ")
+  # print(repo_dicts[choice])
   items = []
   item = {
-    "title": response_dict['results'][0]['title'],
-    "episode_id": response_dict['results'][0]['episode_id'],
-    "director": response_dict['results'][0]['director']
+    "title": response_dict['results'][choice]['title'],
+    "episode_id": response_dict['results'][choice]['episode_id'],
+    "opening_crawl": response_dict['results'][choice]['opening_crawl'],
+    "director": response_dict['results'][choice]['director'],
+    "producer": response_dict['results'][choice]['producer'],
+    "release_date": response_dict['results'][choice]['release_date'],
+    "characters": response_dict['results'][choice]['characters'],
   }
 
   items.append(item)
 
   for item in items:
     print("Title:", item['title'])
+    print("episode:", response_dict['results'][choice]['episode_id'])
     print("Director:", item['director'])
-
+    print("Producer:", item['producer'])
+    print("release_date", item['release_date'])
+    print("opening_crawl:", item['opening_crawl'])
 
 
 ########## This Code is GOOD!!!
@@ -52,15 +72,6 @@ def connect(view):
   # print("Here is the information on the " + view + "You wanted to see: ")
   # print(repo_dicts[choice])
 ###################
-
-
-
-  #print("Here is what you can look at:")
-  # for key in sorted(repo_dict.keys()):
-  #   print(key)
-  # print("From the above list, what do you want to examine?")
-
-
 
 def began():
   print("To start, Here are the categories you can look at:")
