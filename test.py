@@ -1,5 +1,509 @@
 import requests 
 
+############## START OF PEOPLE ##################
+
+def people():
+  print("Here you will find information about People in Star Wars")
+  print("There are a lot of people which will be in groups of 10.")
+  print("Please choose which group you want to look at:")
+  print("1: First Group")
+  print("2: Second Group")
+  print("3: Third Group")
+  print("4: Fourth Group")
+  print("5: Fifth Group")
+  print("6: Sixth Group")
+  print("7: Seventh Group")
+  print("8: Eigth Group")
+  print("9: Ninth Group")
+  choice = int(input("What do you want to look at: "))
+  if choice == 1:
+    firstP()
+  elif choice == 2:
+    secondP()
+  elif choice == 3:
+    thirdP()
+  elif choice == 4:
+    fourthP()
+  elif choice == 5:
+    fifthP()
+  elif choice == 6:
+    sixthP()
+  elif choice == 7:
+    seventhP()
+  elif choice == 8:
+    eighthP()
+  elif choice == 9:
+    ninthP()
+
+def firstP():
+  num = 0
+  while num <= 9:
+    if num >= 0 and num <= 10:
+      url = ('http://swapi.co/api/people/')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
+
+  print("If you do not see your person please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    people()
+  print("Here is the information on the you wanted to see: ")
+
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "height": response_dict['results'][choice]['height'],
+    "mass": response_dict['results'][choice]['mass'],
+    "hair_color": response_dict['results'][choice]['hair_color'],
+    "skin_color": response_dict['results'][choice]['skin_color'],
+    "eye_color": response_dict['results'][choice]['eye_color'],
+    "birth_year": response_dict['results'][choice]['birth_year'],
+    "gender": response_dict['results'][choice]['gender'],
+    "homeworld": response_dict['results'][choice]['homeworld'],
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("height:", item['height'])
+    print("Mass:", item['mass'])
+    print("hair_color:", item['hair_color'])
+    print("skin_color", item['skin_color'])
+    print("eye_color", item['eye_color'])
+    print("birth_year", item['birth_year'])
+    print("gender:", item['gender'])
+    print("homeworld", item['homeworld'])
+  
+  option = input("Do you want to continue using program or exit? (y/n) ")
+  while not validP(option):
+    print("That is not a valid selection")
+    option = input("Do you want to continue using program or exit? (y/n) ")
+  if option == "y":
+    began()
+  elif option == "n":
+    print("Thank you for using the program!")
+
+def secondP():
+  num = 0
+  while num <= 9:
+    if num >= 0 and num <= 10:
+      url = ('http://swapi.co/api/people/?page=2')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
+
+  print("If you do not see your person please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    people()
+  print("Here is the information on the you wanted to see: ")
+
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "height": response_dict['results'][choice]['height'],
+    "mass": response_dict['results'][choice]['mass'],
+    "hair_color": response_dict['results'][choice]['hair_color'],
+    "skin_color": response_dict['results'][choice]['skin_color'],
+    "eye_color": response_dict['results'][choice]['eye_color'],
+    "birth_year": response_dict['results'][choice]['birth_year'],
+    "gender": response_dict['results'][choice]['gender']
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("height:", item['height'])
+    print("Mass:", item['mass'])
+    print("hair_color:", item['hair_color'])
+    print("skin_color", item['skin_color'])
+    print("eye_color", item['eye_color'])
+    print("birth_year", item['birth_year'])
+    print("gender:", item['gender'])
+  
+  option = input("Do you want to continue using program or exit? (y/n) ")
+  while not validP(option):
+    print("That is not a valid selection")
+    option = input("Do you want to continue using program or exit? (y/n) ")
+  if option == "y":
+    began()
+  elif option == "n":
+    print("Thank you for using the program!")
+
+def thirdP():
+  num = 0
+  while num <= 9:
+    if num >= 0 and num <= 10:
+      url = ('http://swapi.co/api/people/?page=3')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
+
+  print("If you do not see your person please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    people()
+  print("Here is the information on the you wanted to see: ")
+
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "height": response_dict['results'][choice]['height'],
+    "mass": response_dict['results'][choice]['mass'],
+    "hair_color": response_dict['results'][choice]['hair_color'],
+    "skin_color": response_dict['results'][choice]['skin_color'],
+    "eye_color": response_dict['results'][choice]['eye_color'],
+    "birth_year": response_dict['results'][choice]['birth_year'],
+    "gender": response_dict['results'][choice]['gender'],
+    "homeworld": response_dict['results'][choice]['homeworld'],
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("height:", item['height'])
+    print("Mass:", item['mass'])
+    print("hair_color:", item['hair_color'])
+    print("skin_color", item['skin_color'])
+    print("eye_color", item['eye_color'])
+    print("birth_year", item['birth_year'])
+    print("gender:", item['gender'])
+    print("homeworld", item['homeworld'])
+
+  option = input("Do you want to continue using program or exit? (y/n) ")
+  while not validP(option):
+    print("That is not a valid selection")
+    option = input("Do you want to continue using program or exit? (y/n) ")
+  if option == "y":
+    began()
+  elif option == "n":
+    print("Thank you for using the program!")
+
+def fourthP():
+  num = 0
+  while num <= 9:
+    if num >= 0 and num <= 10:
+      url = ('http://swapi.co/api/people/?page=4')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
+
+  print("If you do not see your person please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    people()
+  print("Here is the information on the you wanted to see: ")
+
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "height": response_dict['results'][choice]['height'],
+    "mass": response_dict['results'][choice]['mass'],
+    "hair_color": response_dict['results'][choice]['hair_color'],
+    "skin_color": response_dict['results'][choice]['skin_color'],
+    "eye_color": response_dict['results'][choice]['eye_color'],
+    "birth_year": response_dict['results'][choice]['birth_year'],
+    "gender": response_dict['results'][choice]['gender']
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("height:", item['height'])
+    print("Mass:", item['mass'])
+    print("hair_color:", item['hair_color'])
+    print("skin_color", item['skin_color'])
+    print("eye_color", item['eye_color'])
+    print("birth_year", item['birth_year'])
+    print("gender:", item['gender'])
+
+  option = input("Do you want to continue using program or exit? (y/n) ")
+  while not validP(option):
+    print("That is not a valid selection")
+    option = input("Do you want to continue using program or exit? (y/n) ")
+  if option == "y":
+    began()
+  elif option == "n":
+    print("Thank you for using the program!")
+
+def fifthP():
+  num = 0
+  while num <= 9:
+    if num >= 0 and num <= 10:
+      url = ('http://swapi.co/api/people/?page=5')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
+
+  print("If you do not see your person please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    people()
+  print("Here is the information on the you wanted to see: ")
+
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "height": response_dict['results'][choice]['height'],
+    "mass": response_dict['results'][choice]['mass'],
+    "hair_color": response_dict['results'][choice]['hair_color'],
+    "skin_color": response_dict['results'][choice]['skin_color'],
+    "eye_color": response_dict['results'][choice]['eye_color'],
+    "birth_year": response_dict['results'][choice]['birth_year'],
+    "gender": response_dict['results'][choice]['gender']
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("height:", item['height'])
+    print("Mass:", item['mass'])
+    print("hair_color:", item['hair_color'])
+    print("skin_color", item['skin_color'])
+    print("eye_color", item['eye_color'])
+    print("birth_year", item['birth_year'])
+    print("gender:", item['gender'])
+
+  option = input("Do you want to continue using program or exit? (y/n) ")
+  while not validP(option):
+    print("That is not a valid selection")
+    option = input("Do you want to continue using program or exit? (y/n) ")
+  if option == "y":
+    began()
+  elif option == "n":
+    print("Thank you for using the program!")
+
+def sixthP():
+  num = 0
+  while num <= 9:
+    if num >= 0 and num <= 10:
+      url = ('http://swapi.co/api/people/?page=6')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
+
+  print("If you do not see your person please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    people()
+  print("Here is the information on the you wanted to see: ")
+
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "height": response_dict['results'][choice]['height'],
+    "mass": response_dict['results'][choice]['mass'],
+    "hair_color": response_dict['results'][choice]['hair_color'],
+    "skin_color": response_dict['results'][choice]['skin_color'],
+    "eye_color": response_dict['results'][choice]['eye_color'],
+    "birth_year": response_dict['results'][choice]['birth_year'],
+    "gender": response_dict['results'][choice]['gender']
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("height:", item['height'])
+    print("Mass:", item['mass'])
+    print("hair_color:", item['hair_color'])
+    print("skin_color", item['skin_color'])
+    print("eye_color", item['eye_color'])
+    print("birth_year", item['birth_year'])
+    print("gender:", item['gender'])
+
+  option = input("Do you want to continue using program or exit? (y/n) ")
+  while not validP(option):
+    print("That is not a valid selection")
+    option = input("Do you want to continue using program or exit? (y/n) ")
+  if option == "y":
+    began()
+  elif option == "n":
+    print("Thank you for using the program!")
+
+
+def seventhP():
+  num = 0
+  while num <= 9:
+    if num >= 0 and num <= 10:
+      url = ('http://swapi.co/api/people/?page=7')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
+
+  print("If you do not see your person please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    people()
+  print("Here is the information on the you wanted to see: ")
+
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "height": response_dict['results'][choice]['height'],
+    "mass": response_dict['results'][choice]['mass'],
+    "hair_color": response_dict['results'][choice]['hair_color'],
+    "skin_color": response_dict['results'][choice]['skin_color'],
+    "eye_color": response_dict['results'][choice]['eye_color'],
+    "birth_year": response_dict['results'][choice]['birth_year'],
+    "gender": response_dict['results'][choice]['gender']
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("height:", item['height'])
+    print("Mass:", item['mass'])
+    print("hair_color:", item['hair_color'])
+    print("skin_color", item['skin_color'])
+    print("eye_color", item['eye_color'])
+    print("birth_year", item['birth_year'])
+    print("gender:", item['gender'])
+
+  option = input("Do you want to continue using program or exit? (y/n) ")
+  while not validP(option):
+    print("That is not a valid selection")
+    option = input("Do you want to continue using program or exit? (y/n) ")
+  if option == "y":
+    began()
+  elif option == "n":
+    print("Thank you for using the program!")
+
+
+def eighthP():
+  num = 0
+  while num <= 9:
+    if num >= 0 and num <= 10:
+      url = ('http://swapi.co/api/people/?page=8')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
+
+  print("If you do not see your person please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    people()
+  print("Here is the information on the you wanted to see: ")
+
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "height": response_dict['results'][choice]['height'],
+    "mass": response_dict['results'][choice]['mass'],
+    "hair_color": response_dict['results'][choice]['hair_color'],
+    "skin_color": response_dict['results'][choice]['skin_color'],
+    "eye_color": response_dict['results'][choice]['eye_color'],
+    "birth_year": response_dict['results'][choice]['birth_year'],
+    "gender": response_dict['results'][choice]['gender']
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("height:", item['height'])
+    print("Mass:", item['mass'])
+    print("hair_color:", item['hair_color'])
+    print("skin_color", item['skin_color'])
+    print("eye_color", item['eye_color'])
+    print("birth_year", item['birth_year'])
+    print("gender:", item['gender'])
+
+  option = input("Do you want to continue using program or exit? (y/n) ")
+  while not validP(option):
+    print("That is not a valid selection")
+    option = input("Do you want to continue using program or exit? (y/n) ")
+  if option == "y":
+    began()
+  elif option == "n":
+    print("Thank you for using the program!")
+
+def ninthP():
+  num = 0
+  while num <= 6:
+    if num >= 0 and num <= 6:
+      url = ('http://swapi.co/api/people/?page=9')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
+
+  print("If you do not see your person please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    people()
+  print("Here is the information on the you wanted to see: ")
+
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "height": response_dict['results'][choice]['height'],
+    "mass": response_dict['results'][choice]['mass'],
+    "hair_color": response_dict['results'][choice]['hair_color'],
+    "skin_color": response_dict['results'][choice]['skin_color'],
+    "eye_color": response_dict['results'][choice]['eye_color'],
+    "birth_year": response_dict['results'][choice]['birth_year'],
+    "gender": response_dict['results'][choice]['gender']
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("height:", item['height'])
+    print("Mass:", item['mass'])
+    print("hair_color:", item['hair_color'])
+    print("skin_color", item['skin_color'])
+    print("eye_color", item['eye_color'])
+    print("birth_year", item['birth_year'])
+    print("gender:", item['gender'])
+
+  option = input("Do you want to continue using program or exit? (y/n) ")
+  while not validP(option):
+    print("That is not a valid selection")
+    option = input("Do you want to continue using program or exit? (y/n) ")
+  if option == "y":
+    began()
+  elif option == "n":
+    print("Thank you for using the program!")
+
+
+
+############# END OF PEOPLE #####################
+
 ############## START OF FILMS ##################
 
 def films():
@@ -63,11 +567,62 @@ def starship():
   print("1: First Group")
   print("2: Second Group")
   print("3: Third Group")
-  print("4: Fourth Group")
+  print("3: Fourth Group")
   choice = int(input("What do you want to look at: "))
   if choice == 1:
+    one()
+  elif choice == 2:
     two()
+  elif choice == 3:
+    three()
+  elif choice == 4:
+    four()
 
+def one():
+  num = 0
+  while num <= 9:
+    if num >= 0 and num <= 10:
+      url = ('http://swapi.co/api/starships/?page=2')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
+
+  print("If you do not see your ship please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    starship()
+  print("Here is the information on the you wanted to see: ")
+
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "model": response_dict['results'][choice]['model'],
+    "manufacturer": response_dict['results'][choice]['manufacturer'],
+    "length": response_dict['results'][choice]['length'],
+    "max_atmosphering_speed": response_dict['results'][choice]['max_atmosphering_speed'],
+    "crew": response_dict['results'][choice]['crew'],
+    "cargo_capacity": response_dict['results'][choice]['cargo_capacity'],
+    "consumables": response_dict['results'][choice]['consumables'],
+    "hyperdrive_rating": response_dict['results'][choice]['hyperdrive_rating'],
+    "starship_class": response_dict['results'][choice]['starship_class']
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("model:", item['model'])
+    print("Manufacturer:", item['manufacturer'])
+    print("Length:", item['length'])
+    print("max_atmosphering_speed:", item['max_atmosphering_speed'])
+    print("crew:", item['crew'])
+    print("cargo_capacity:", item['cargo_capacity'])
+    print("consumables:", item['consumables'])
+    print("hyperdrive_rating:", item['hyperdrive_rating'])
+    print("starship_class:", item['starship_class'])
 
 def two():
   num = 0
@@ -220,11 +775,26 @@ def began():
   print("6. Starships")
   choice = int(input("What do you want to look at? "))
   if choice == 1:
-    films()
+    people()
   elif choice == 3:
     films()
   elif choice == 6:
     starship()
+
+############ Valid Functions ############
+### These Function will ensure that user input is correct. 
+
+def valid(choice):
+  if choice == "y" or choice == "n":
+    return True 
+  else:
+    return False 
+
+def validP(option):
+  if option == "y" or option == "n":
+    return True 
+  else:
+    return False 
   
 
 
@@ -235,6 +805,9 @@ def main():
   print('---STAR WARS API--- ')
   print('*******************')
   choice = input("Would you like to use it?(y/n) ")
+  while not valid(choice):
+    print("That is not a valid selection")
+    choice = input("Would you like to use it?(y/n) ")
   if choice.lower() == "y":
     began()
   else:
