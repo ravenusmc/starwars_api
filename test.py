@@ -506,6 +506,80 @@ def ninthP():
 
 ############## START OF PLANETS ##################
 
+def planets():
+  print("Here you will find information about Planets in Star Wars")
+  print("There are a lot of people which will be in groups of 6.")
+  print("Please choose which group you want to look at:")
+  print("1: First Group")
+  print("2: Second Group")
+  print("3: Third Group")
+  print("4: Fourth Group")
+  print("5: Fifth Group")
+  print("6: Sixth Group")
+  choice = int(input("What do you want to look at: "))
+  if choice == 1:
+    firstPl()
+  elif choice == 2:
+    secondPl()
+  elif choice == 3:
+    thirdPl()
+  elif choice == 4:
+    fourthPl()
+  elif choice == 5:
+    fifthPl()
+  elif choice == 6:
+    sixthPl()
+  elif choice == 7:
+    seventhPl()
+  elif choice == 8:
+    eighthPl()
+  elif choice == 9:
+    ninthPl()
+
+def firstPl():
+  num = 0
+  while num <= 9:
+    if num >= 0 and num <= 10:
+      url = ('http://swapi.co/api/planets/')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
+
+  print("If you do not see your planet please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    starship()
+  print("Here is the information on the you wanted to see: ")
+
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "rotation_period": response_dict['results'][choice]['rotation_period'],
+    "orbital_period": response_dict['results'][choice]['orbital_period'],
+    "diameter": response_dict['results'][choice]['diameter'],
+    "climate": response_dict['results'][choice]['climate'],
+    "gravity": response_dict['results'][choice]['gravity'],
+    "terrain": response_dict['results'][choice]['terrain'],
+    "surface_water": response_dict['results'][choice]['surface_water'],
+    "population": response_dict['results'][choice]['population']
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("rotation_period:", item['rotation_period'])
+    print("orbital_period:", item['orbital_period'])
+    print("diameter", item['diameter'])
+    print("climate", item['climate'])
+    print("gravity", item['gravity'])
+    print("terrain", item['terrain'])
+    print("surface_water", item['surface_water'])
+    print("population", item['population'])
+
 
 
 
