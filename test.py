@@ -504,6 +504,15 @@ def ninthP():
 
 ############# END OF PEOPLE #####################
 
+############## START OF PLANETS ##################
+
+
+
+
+
+
+############# END OF PLANETS #####################
+
 ############## START OF FILMS ##################
 
 def films():
@@ -776,6 +785,8 @@ def began():
   choice = int(input("What do you want to look at? "))
   if choice == 1:
     people()
+  elif choice == 2:
+    planets()
   elif choice == 3:
     films()
   elif choice == 6:
