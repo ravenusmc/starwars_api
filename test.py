@@ -516,27 +516,24 @@ def planets():
   print("4: Fourth Group")
   print("5: Fifth Group")
   print("6: Sixth Group")
+  print("7: Seventh Group")
   choice = int(input("What do you want to look at: "))
   if choice == 1:
-    firstPl()
+    onePl()
   elif choice == 2:
-    secondPl()
+    twoPl()
   elif choice == 3:
-    thirdPl()
+    threePl()
   elif choice == 4:
-    fourthPl()
+    fourPl()
   elif choice == 5:
-    fifthPl()
+    fivePl()
   elif choice == 6:
-    sixthPl()
+    sixPl()
   elif choice == 7:
-    seventhPl()
-  elif choice == 8:
-    eighthPl()
-  elif choice == 9:
-    ninthPl()
+    sevenPl()
 
-def firstPl():
+def onePl():
   num = 0
   while num <= 9:
     if num >= 0 and num <= 10:
@@ -580,10 +577,332 @@ def firstPl():
     print("surface_water", item['surface_water'])
     print("population", item['population'])
 
+  option = input("Do you want to continue using program or exit? (y/n) ")
+  while not validP(option):
+    print("That is not a valid selection")
+    option = input("Do you want to continue using program or exit? (y/n) ")
+  if option == "y":
+    began()
+  elif option == "n":
+    print("Thank you for using the program!")
 
+def twoPl():
+  num = 0
+  while num <= 9:
+    if num >= 0 and num <= 10:
+      url = ('http://swapi.co/api/planets/?page=2')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
 
+  print("If you do not see your planet please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    starship()
+  print("Here is the information on the you wanted to see: ")
 
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "rotation_period": response_dict['results'][choice]['rotation_period'],
+    "orbital_period": response_dict['results'][choice]['orbital_period'],
+    "diameter": response_dict['results'][choice]['diameter'],
+    "climate": response_dict['results'][choice]['climate'],
+    "gravity": response_dict['results'][choice]['gravity'],
+    "terrain": response_dict['results'][choice]['terrain'],
+    "surface_water": response_dict['results'][choice]['surface_water'],
+    "population": response_dict['results'][choice]['population']
+  }
 
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("rotation_period:", item['rotation_period'])
+    print("orbital_period:", item['orbital_period'])
+    print("diameter", item['diameter'])
+    print("climate", item['climate'])
+    print("gravity", item['gravity'])
+    print("terrain", item['terrain'])
+    print("surface_water", item['surface_water'])
+    print("population", item['population'])
+
+  option = input("Do you want to continue using program or exit? (y/n) ")
+  while not validP(option):
+    print("That is not a valid selection")
+    option = input("Do you want to continue using program or exit? (y/n) ")
+  if option == "y":
+    began()
+  elif option == "n":
+    print("Thank you for using the program!")
+
+def thirdPl():
+  num = 0
+  while num <= 9:
+    if num >= 0 and num <= 10:
+      url = ('http://swapi.co/api/planets/?page=3')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
+
+  print("If you do not see your planet please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    starship()
+  print("Here is the information on the you wanted to see: ")
+
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "rotation_period": response_dict['results'][choice]['rotation_period'],
+    "orbital_period": response_dict['results'][choice]['orbital_period'],
+    "diameter": response_dict['results'][choice]['diameter'],
+    "climate": response_dict['results'][choice]['climate'],
+    "gravity": response_dict['results'][choice]['gravity'],
+    "terrain": response_dict['results'][choice]['terrain'],
+    "surface_water": response_dict['results'][choice]['surface_water'],
+    "population": response_dict['results'][choice]['population']
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("rotation_period:", item['rotation_period'])
+    print("orbital_period:", item['orbital_period'])
+    print("diameter", item['diameter'])
+    print("climate", item['climate'])
+    print("gravity", item['gravity'])
+    print("terrain", item['terrain'])
+    print("surface_water", item['surface_water'])
+    print("population", item['population'])
+
+  option = input("Do you want to continue using program or exit? (y/n) ")
+  while not validP(option):
+    print("That is not a valid selection")
+    option = input("Do you want to continue using program or exit? (y/n) ")
+  if option == "y":
+    began()
+  elif option == "n":
+    print("Thank you for using the program!")
+
+def fourPl():
+  num = 0
+  while num <= 9:
+    if num >= 0 and num <= 10:
+      url = ('http://swapi.co/api/planets/?page=4')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
+
+  print("If you do not see your planet please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    starship()
+  print("Here is the information on the you wanted to see: ")
+
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "rotation_period": response_dict['results'][choice]['rotation_period'],
+    "orbital_period": response_dict['results'][choice]['orbital_period'],
+    "diameter": response_dict['results'][choice]['diameter'],
+    "climate": response_dict['results'][choice]['climate'],
+    "gravity": response_dict['results'][choice]['gravity'],
+    "terrain": response_dict['results'][choice]['terrain'],
+    "surface_water": response_dict['results'][choice]['surface_water'],
+    "population": response_dict['results'][choice]['population']
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("rotation_period:", item['rotation_period'])
+    print("orbital_period:", item['orbital_period'])
+    print("diameter", item['diameter'])
+    print("climate", item['climate'])
+    print("gravity", item['gravity'])
+    print("terrain", item['terrain'])
+    print("surface_water", item['surface_water'])
+    print("population", item['population'])
+
+  option = input("Do you want to continue using program or exit? (y/n) ")
+  while not validP(option):
+    print("That is not a valid selection")
+    option = input("Do you want to continue using program or exit? (y/n) ")
+  if option == "y":
+    began()
+  elif option == "n":
+    print("Thank you for using the program!")
+
+def fivePl():
+  num = 0
+  while num <= 9:
+    if num >= 0 and num <= 10:
+      url = ('http://swapi.co/api/planets/?page=5')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
+
+  print("If you do not see your planet please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    starship()
+  print("Here is the information on the you wanted to see: ")
+
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "rotation_period": response_dict['results'][choice]['rotation_period'],
+    "orbital_period": response_dict['results'][choice]['orbital_period'],
+    "diameter": response_dict['results'][choice]['diameter'],
+    "climate": response_dict['results'][choice]['climate'],
+    "gravity": response_dict['results'][choice]['gravity'],
+    "terrain": response_dict['results'][choice]['terrain'],
+    "surface_water": response_dict['results'][choice]['surface_water'],
+    "population": response_dict['results'][choice]['population']
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("rotation_period:", item['rotation_period'])
+    print("orbital_period:", item['orbital_period'])
+    print("diameter", item['diameter'])
+    print("climate", item['climate'])
+    print("gravity", item['gravity'])
+    print("terrain", item['terrain'])
+    print("surface_water", item['surface_water'])
+    print("population", item['population'])
+
+  option = input("Do you want to continue using program or exit? (y/n) ")
+  while not validP(option):
+    print("That is not a valid selection")
+    option = input("Do you want to continue using program or exit? (y/n) ")
+  if option == "y":
+    began()
+  elif option == "n":
+    print("Thank you for using the program!")
+
+def sixPl():
+  num = 0
+  while num <= 9:
+    if num >= 0 and num <= 10:
+      url = ('http://swapi.co/api/planets/?page=6')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
+
+  print("If you do not see your planet please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    starship()
+  print("Here is the information on the you wanted to see: ")
+
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "rotation_period": response_dict['results'][choice]['rotation_period'],
+    "orbital_period": response_dict['results'][choice]['orbital_period'],
+    "diameter": response_dict['results'][choice]['diameter'],
+    "climate": response_dict['results'][choice]['climate'],
+    "gravity": response_dict['results'][choice]['gravity'],
+    "terrain": response_dict['results'][choice]['terrain'],
+    "surface_water": response_dict['results'][choice]['surface_water'],
+    "population": response_dict['results'][choice]['population']
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("rotation_period:", item['rotation_period'])
+    print("orbital_period:", item['orbital_period'])
+    print("diameter", item['diameter'])
+    print("climate", item['climate'])
+    print("gravity", item['gravity'])
+    print("terrain", item['terrain'])
+    print("surface_water", item['surface_water'])
+    print("population", item['population'])
+
+  option = input("Do you want to continue using program or exit? (y/n) ")
+  while not validP(option):
+    print("That is not a valid selection")
+    option = input("Do you want to continue using program or exit? (y/n) ")
+  if option == "y":
+    began()
+  elif option == "n":
+    print("Thank you for using the program!")
+
+def sevenPl():
+  num = 0
+  while num < 1:
+    if num >= 0 and num < 1:
+      url = ('http://swapi.co/api/planets/?page=7')
+      r = requests.get(url)
+      response_dict = r.json()
+      repo_dicts = response_dict['results']
+      repo_dict = repo_dicts[num]['name']
+      print(str(num) + " " + repo_dict)
+      num += 1 
+
+  print("If you do not see your planet please enter -1 to go back to the main starship menu")
+  choice = int(input("Which one do you want to look at: "))
+  if choice == -1:
+    starship()
+  print("Here is the information on the you wanted to see: ")
+
+  items = []
+  item = {
+    "name": response_dict['results'][choice]['name'],
+    "rotation_period": response_dict['results'][choice]['rotation_period'],
+    "orbital_period": response_dict['results'][choice]['orbital_period'],
+    "diameter": response_dict['results'][choice]['diameter'],
+    "climate": response_dict['results'][choice]['climate'],
+    "gravity": response_dict['results'][choice]['gravity'],
+    "terrain": response_dict['results'][choice]['terrain'],
+    "surface_water": response_dict['results'][choice]['surface_water'],
+    "population": response_dict['results'][choice]['population']
+  }
+
+  items.append(item)
+
+  for item in items:
+    print("name:", item['name'])
+    print("rotation_period:", item['rotation_period'])
+    print("orbital_period:", item['orbital_period'])
+    print("diameter", item['diameter'])
+    print("climate", item['climate'])
+    print("gravity", item['gravity'])
+    print("terrain", item['terrain'])
+    print("surface_water", item['surface_water'])
+    print("population", item['population'])
+
+  option = input("Do you want to continue using program or exit? (y/n) ")
+  while not validP(option):
+    print("That is not a valid selection")
+    option = input("Do you want to continue using program or exit? (y/n) ")
+  if option == "y":
+    began()
+  elif option == "n":
+    print("Thank you for using the program!")
 
 ############# END OF PLANETS #####################
 
@@ -639,6 +958,33 @@ def films():
     print("opening_crawl:", item['opening_crawl'])
 
 ############# END OF FILMS #####################
+
+################ START OF SPECIES #############
+
+def species():
+  print("Here you will find information about Species in Star Wars")
+  print("There are a lot of species which will be in groups of 10.")
+  print("Please choose which group you want to look at:")
+  print("1: First Group")
+  print("2: Second Group")
+  print("3: Third Group")
+  print("3: Fourth Group")
+  choice = int(input("What do you want to look at: "))
+  if choice == 1:
+    oneSP()
+  elif choice == 2:
+    twoSP()
+  elif choice == 3:
+    threeSP()
+  elif choice == 4:
+    fourSP()
+
+
+
+
+
+
+################ END OF SPECIES #############
 
 
 ################ START OF STARSHIPS #############
@@ -863,6 +1209,8 @@ def began():
     planets()
   elif choice == 3:
     films()
+  elif choice == 4:
+    species()
   elif choice == 6:
     starship()
 
